@@ -95,19 +95,33 @@ function App() {
             ))}
           </div>
           <div>
-            <div className="text-white absolute bottom-32 border rounded-lg p-3 
-            left-12 bg-slate-500/80 space-y-5">
-              <div>
-                {weather.main ? (
-                  <p>Відчувається як: <span className="font-bold">{weather.main?.feels_like} ℃</span></p>
-                ) : null}
+            {query.length === 0 ? (
+              <div
+                className="text-white absolute bottom-32 border rounded-lg p-3 
+            left-12 bg-slate-500/80 space-y-5"
+              >
+                <div>
+                  {weather.main ? (
+                    <p>
+                      Відчувається як:{" "}
+                      <span className="font-bold">
+                        {weather.main?.feels_like} ℃
+                      </span>
+                    </p>
+                  ) : null}
+                </div>
+                <div>
+                  {weather.main ? (
+                    <p>
+                      Максимальная температура:{" "}
+                      <span className="font-bold">
+                        {weather.main?.temp_max} ℃
+                      </span>
+                    </p>
+                  ) : null}
+                </div>
               </div>
-              <div>
-                {weather.main ? (
-                  <p>Максимальная температура: <span className="font-bold">{weather.main?.temp_max} ℃</span></p>
-                ) : null}
-              </div>
-            </div>
+            ) : null}
           </div>
         </div>
       </main>
